@@ -1,10 +1,11 @@
-package com.schambeck.erp.sales.app.dataprovider.model;
+package com.schambeck.erp.supply.app.dataprovider.model;
 
-import com.schambeck.erp.sales.app.dataprovider.entity.StatusOrder;
+import com.schambeck.erp.supply.app.dataprovider.entity.StatusOrder;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,13 +13,16 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder(toBuilder = true)
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderMsg {
+    @ToString.Include
     private UUID id;
     @NotNull(message = "Client is required")
     private UUID clientId;
+    @NotNull(message = "Issued date is required")
+    private LocalDate issuedDate;
     private StatusOrder status;
     private BigDecimal totalCost;
     @Singular

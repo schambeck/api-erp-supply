@@ -1,48 +1,26 @@
 package com.schambeck.erp.supply.app.dataprovider;
 
-import com.schambeck.erp.supply.app.dataprovider.entity.OrderEntity;
-import com.schambeck.erp.supply.app.dataprovider.mapper.OrderMapper;
-import com.schambeck.erp.supply.core.dataprovider.OrderRepository;
-import com.schambeck.erp.supply.core.entity.Order;
+import com.schambeck.erp.supply.app.dataprovider.entity.MovementEntity;
+import com.schambeck.erp.supply.app.dataprovider.mapper.MovementMapper;
+import com.schambeck.erp.supply.core.dataprovider.MovementRepository;
+import com.schambeck.erp.supply.core.entity.Movement;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
-import static com.schambeck.erp.supply.app.dataprovider.entity.StatusOrder.CLOSED;
-
+@Slf4j
 @Repository
 @RequiredArgsConstructor
-public class MovementGateway implements OrderRepository {
-	private final JpaOrderRepository jpaRepository;
+public class MovementGateway implements MovementRepository {
+	private final JpaMovementRepository jpaRepository;
 
 	@Override
-	@Transactional
-	public void close(UUID id) {
-		jpaRepository.updateStatus(id, CLOSED);
-	}
-
-	@Override
-	@Transactional
-	public Order create(Order order) {
-		OrderEntity entity = OrderMapper.INSTANCE.toEntity(order);
-		OrderEntity created = jpaRepository.save(entity);
-		return OrderMapper.INSTANCE.toDomain(created);
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public Optional<Order> findById(UUID id) {
-		return jpaRepository.findById(id)
-				.map(OrderMapper.INSTANCE::toDomain);
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public List<Order> findAll() {
-		return OrderMapper.INSTANCE.toDomain(jpaRepository.findAll());
+	public List<Movement> createAll(List<Movement> movements) {
+		log.info("createAll: {}", movements);
+		List<MovementEntity> entities = MovementMapper.INSTANCE.toEntity(movements);
+		List<MovementEntity> created = jpaRepository.saveAll(entities);
+		return MovementMapper.INSTANCE.toDomain(created);
 	}
 }

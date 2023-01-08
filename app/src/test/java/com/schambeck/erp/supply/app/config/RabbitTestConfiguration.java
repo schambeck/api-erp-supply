@@ -1,4 +1,4 @@
-package com.schambeck.erp.sales.app.config;
+package com.schambeck.erp.supply.app.config;
 
 import com.github.fridujo.rabbitmq.mock.MockConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

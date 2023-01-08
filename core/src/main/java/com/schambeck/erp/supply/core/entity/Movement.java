@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +25,11 @@ public class Movement implements Serializable {
     private LocalDate issuedDate;
     @NotNull(message = "Item is required")
     private UUID orderLineId;
+    @ToString.Include
     @NotNull(message = "Product is required")
     private UUID productId;
     @NotNull(message = "Quantity is required")
+    @ToString.Include
     private BigDecimal quantity;
 
     @Override

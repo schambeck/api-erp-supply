@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import static com.schambeck.erp.supply.core.entity.vo.StatusOrder.CREATED;
 import static com.schambeck.erp.supply.core.util.MessageConstraintViolationMatcher.messageIs;
+import static java.time.Month.JANUARY;
 import static nl.jqno.equalsverifier.Warning.ALL_FIELDS_SHOULD_BE_USED;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -39,13 +41,16 @@ class OrderTest {
         Order.OrderBuilder createdOrder = Order.builder()
                 .id(UUID.fromString("dd9c24cc-b336-4f25-95de-bfd2ce7520fc"))
                 .clientId(UUID.fromString("89fc02d7-af79-473a-a792-ce4d6c188527"))
+                .issuedDate(LocalDate.of(2023, JANUARY, 19))
                 .status(CREATED)
                 .item(OrderLine.builder()
+                        .id(UUID.fromString("6d2160b5-71de-4609-a5ae-cdf59743f881"))
                         .productId(UUID.fromString("c90e4992-3e48-43ca-9da3-7ca012f44236"))
                         .quantity(new BigDecimal("3.00"))
                         .price(new BigDecimal("1.50"))
                         .build())
                 .item(OrderLine.builder()
+                        .id(UUID.fromString("b6ec37e0-3ca0-4260-b15c-986b16b5e0ac"))
                         .productId(UUID.fromString("5da092c1-0abb-4b11-b1bd-a174f8a4a357"))
                         .quantity(new BigDecimal("2.00"))
                         .price(new BigDecimal("2.10"))
@@ -61,8 +66,10 @@ class OrderTest {
         Order.OrderBuilder createdOrder = Order.builder()
                 .id(UUID.fromString("dd9c24cc-b336-4f25-95de-bfd2ce7520fc"))
                 .clientId(UUID.fromString("89fc02d7-af79-473a-a792-ce4d6c188527"))
+                .issuedDate(LocalDate.of(2023, JANUARY, 19))
                 .status(CREATED)
                 .item(OrderLine.builder()
+                        .id(UUID.fromString("6d2160b5-71de-4609-a5ae-cdf59743f881"))
                         .productId(UUID.fromString("c90e4992-3e48-43ca-9da3-7ca012f44236"))
                         .quantity(new BigDecimal("3.00"))
                         .price(new BigDecimal("1.50"))

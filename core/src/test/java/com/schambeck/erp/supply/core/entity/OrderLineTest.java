@@ -16,6 +16,7 @@ class OrderLineTest {
     @Test
     void cost_ValidItem_ShouldPass() {
         OrderLine.OrderLineBuilder item = OrderLine.builder()
+                .id(UUID.fromString("65b38162-a232-42d8-a14b-172156f669bb"))
                 .productId(UUID.fromString("7a4142b6-c672-4e92-a42c-d4f93735d480"))
                 .price(new BigDecimal("1.50"))
                 .quantity(new BigDecimal("3.00"));
