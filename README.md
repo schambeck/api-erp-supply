@@ -1,6 +1,6 @@
-# srv-erp-supply
-[![build](https://github.com/schambeck/srv-erp-supply/actions/workflows/gradle.yml/badge.svg)](https://github.com/schambeck/srv-erp-supply/actions/workflows/gradle.yml)
-[![coverage](https://sonarcloud.io/api/project_badges/measure?project=schambeck_srv-erp-supply&metric=coverage)](https://sonarcloud.io/summary/new_code?id=schambeck_srv-erp-supply)
+# api-erp-supply
+[![build](https://github.com/schambeck/api-erp-supply/actions/workflows/gradle.yml/badge.svg)](https://github.com/schambeck/api-erp-supply/actions/workflows/gradle.yml)
+[![coverage](https://sonarcloud.io/api/project_badges/measure?project=schambeck_api-erp-supply&metric=coverage)](https://sonarcloud.io/summary/new_code?id=schambeck_api-erp-supply)
 
 ## ERP Supply API
 
@@ -24,7 +24,7 @@
 
 ### Run backend
 
-    java -jar app/build/libs/srv-erp-supply-app-1.0.0.jar
+    java -jar app/build/libs/api-erp-supply-app-1.0.0.jar
 
 ### RabbitMQ Web Interface
 
@@ -34,4 +34,4 @@
 
 ### Related Projects
 
-- Sales: [erp-sales](https://github.com/schambeck/srv-erp-sales)
+- Sales: [erp-sales](https://github.com/schambeck/api-erp-sales)

@@ -4,7 +4,7 @@ plugins {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "schambeck_srv-erp-supply"
+        property "sonar.projectKey", "schambeck_api-erp-supply"
         property "sonar.organization", "schambeck"
         property "sonar.host.url", "https://sonarcloud.io"
     }
