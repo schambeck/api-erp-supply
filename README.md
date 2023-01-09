@@ -4,6 +4,8 @@
 
 ## ERP Supply API
 
+### Simple Clean Architecture
+
 ### Tech Stack
 
 - Java 17
@@ -29,3 +31,7 @@
     http://localhost:15672
     User: guest
     Pass: guest
+
+### Related Projects
+
+- Sales: [erp-sales](https://github.com/schambeck/srv-erp-sales)
