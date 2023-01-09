@@ -1,5 +1,6 @@
 # srv-erp-supply
 [![build](https://github.com/schambeck/srv-erp-supply/actions/workflows/gradle.yml/badge.svg)](https://github.com/schambeck/srv-erp-supply/actions/workflows/gradle.yml)
+[![coverage](https://sonarcloud.io/api/project_badges/measure?project=schambeck_srv-erp-supply&metric=coverage)](https://sonarcloud.io/summary/new_code?id=schambeck_srv-erp-supply)
 
 ## ERP Supply API
 
